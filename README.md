@@ -71,7 +71,25 @@ Since our data passed all Data Quality Checks, it is now verified and ready to b
 <img width="1434" height="726" alt="Screenshot 2025-09-27 at 18 02 23" src="https://github.com/user-attachments/assets/c35dfe7c-2d87-4d57-ab3e-7094e275c1c5" />
 
 ## Databricks Warehousing
-Now that data is stored in the gold layer our data is now prepared for analysis and reporting in which i tested with the Serverless SQL Warehouse in Databricks
+For reporting, I tested the curated datasets using the Serverless SQL Warehouse in Databricks to ensure they were ready for analysis and visualization.
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 15 30 38" src="https://github.com/user-attachments/assets/531b9eec-a7e7-4696-b171-cccea32395e6" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 15 31 11" src="https://github.com/user-attachments/assets/9c991875-866c-4695-bf47-cde606ae5688" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 15 31 30" src="https://github.com/user-attachments/assets/5cfccb30-9eca-4316-bc45-d1cdd2356573" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 15 31 46" src="https://github.com/user-attachments/assets/5f31daf5-44aa-4490-92d2-aba5dd1a4598" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 15 36 21" src="https://github.com/user-attachments/assets/b4b6babb-a95a-41a2-bc9a-432ba433af01" />
 
 ## BI Partner Connect
 Thanks to Databricks Partner Connect, I was able to provide the BI connector to the Data Analyst, enabling them to directly query and visualize the cleaned data in Power BI with ease—without needing to rely on the SQL Data Warehouse.
+
+
+## Synapse Warehousing
+To provide additional flexibility, I loaded the curated data into Synapse Analytics using the OPENROWSET() function, bringing the final datasets from the Data Lake into Synapse for analysis and reporting.
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 48 59" src="https://github.com/user-attachments/assets/960537ca-0a1c-476e-a207-13c45efd4e61" />
+
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 33 23" src="https://github.com/user-attachments/assets/db710c4d-538a-4df5-9fec-cd75668a2060" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 44 33" src="https://github.com/user-attachments/assets/86b54323-621a-4de8-afc6-6e4d2cf056d8" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 45 07" src="https://github.com/user-attachments/assets/6e7415d9-3621-4346-a480-7a301818d4d1" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 45 53" src="https://github.com/user-attachments/assets/3c66a546-126f-43d8-b241-0e7c2801c994" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 48 49" src="https://github.com/user-attachments/assets/c479aee0-9dd4-4e7b-8d4a-8bc9567d8f4e" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 49 56" src="https://github.com/user-attachments/assets/08b67027-9fed-4980-9132-dda4750aede8" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 50 54" src="https://github.com/user-attachments/assets/f3828516-840f-48f1-8dcc-9bb141bc09f7" />
