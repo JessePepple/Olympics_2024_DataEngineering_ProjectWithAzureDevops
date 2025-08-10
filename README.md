@@ -79,6 +79,6 @@ For reporting, I tested the curated datasets using the Serverless SQL Warehouse 
 <img width="1434" height="764" alt="Screenshot 2025-09-27 at 15 36 21" src="https://github.com/user-attachments/assets/b4b6babb-a95a-41a2-bc9a-432ba433af01" />
 
 ## BI Partner Connect
-Thanks to Databricks Partner Connect, I was able to provide the BI connector to the Data Analyst, enabling them to directly query and visualize the cleaned data in Power BI with ease—without needing to rely on the SQL Data Warehouse.
+Thanks to Databricks Partner Connect, I was able to provide the BI connector to the Data Analyst, enabling them to directly query and visualize the cleaned data in Power BI with ease—without needing to rely on the SQL Data Warehouse. Followed after was loading my data in Synapse Warehouse thus, the conclusion of my project.
 
 
