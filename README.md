@@ -81,4 +81,16 @@ For reporting, I tested the curated datasets using the Serverless SQL Warehouse 
 ## BI Partner Connect
 Thanks to Databricks Partner Connect, I was able to provide the BI connector to the Data Analyst, enabling them to directly query and visualize the cleaned data in Power BI with ease—without needing to rely on the SQL Data Warehouse. Followed after was loading my data in Synapse Warehouse thus, the conclusion of my project.
 
+## Synapse Warehousing
+To provide additional flexibility, I loaded the curated data into Synapse Analytics using the OPENROWSET() function, bringing the final datasets from the Data Lake into Synapse for analysis and reporting.
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 48 59" src="https://github.com/user-attachments/assets/960537ca-0a1c-476e-a207-13c45efd4e61" />
 
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 33 23" src="https://github.com/user-attachments/assets/db710c4d-538a-4df5-9fec-cd75668a2060" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 44 33" src="https://github.com/user-attachments/assets/86b54323-621a-4de8-afc6-6e4d2cf056d8" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 45 07" src="https://github.com/user-attachments/assets/6e7415d9-3621-4346-a480-7a301818d4d1" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 45 53" src="https://github.com/user-attachments/assets/3c66a546-126f-43d8-b241-0e7c2801c994" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 48 49" src="https://github.com/user-attachments/assets/c479aee0-9dd4-4e7b-8d4a-8bc9567d8f4e" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 49 56" src="https://github.com/user-attachments/assets/08b67027-9fed-4980-9132-dda4750aede8" />
+<img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 50 54" src="https://github.com/user-attachments/assets/f3828516-840f-48f1-8dcc-9bb141bc09f7" />
+
+In my project, I chose to use views instead of tables in Synapse for the presentation layer because they provide abstraction and simplicity, hiding the complexity of the underlying raw and transformed data while making it easier for analysts to query. Views are lightweight and flexible, allowing quick updates to schema or business logic without the need to reload or duplicate data. This aligns with best practices in modern data architectures, where tables handle persistence at the raw and curated layers, while views expose clean, business-friendly models to end users. By doing this, I was able to balance performance with usability, showcasing how Synapse can still leverage optimized underlying storage while offering analyst-ready models. For my GitHub portfolio, using views also better communicates design thinking, highlighting my ability to present data in a way that aligns with real-world reporting and analytics needs rather than just displaying raw storage as soon after completion of project resource group will be deleted, although in production and future portfolio project this would be a different case as there are major instance in data loading in Synapse Workspace, in which I will demonstrate my skills in creating and presenting external tables.
