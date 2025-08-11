@@ -18,7 +18,7 @@ Databricks Components:
 Languages & Tools:
 	•	Python (PySpark / notebooks)
 	•	SQL
-	•	Partner Connect (Power BI integration, optional)
+	
   
 ## PROJECT OVERVIW
 The Azure Olympics 2024 Data Engineering Project is an end-to-end data pipeline built on Azure and Databricks using the Olympics 2024 dataset. The project was managed with Azure DevOps, where I implemented CI/CD pipelines for automated deployments and reproducibility. Data ingestion was handled through Azure Data Factory (ADF), with raw data stored in the Bronze container of Azure Data Lake following the Medallion Architecture. To ensure governance and security, I utilised Unity Catalog for access control and lineage. From there, I performed data cleaning and transformation in Databricks, refining the data into Silver and Gold layers. For the Gold layer, I implemented Delta Live Tables (DLT) as an automated ETL framework, and integrated the Change Data Capture (CDC) API to manage Slowly Changing Dimensions (SCD Type 1) for the athletes table. Finally, I delivered curated streaming pipeline datasets for analysis by loading into both Databricks SQL Warehouse and Azure Synapse Analytics, enabling flexible BI and reporting. This project highlights my skills in cloud data engineering, data governance, CI/CD, and modern ETL design with Delta Lake.
