@@ -27,6 +27,18 @@ Languages & Tools:
 ## PROJECT OVERVIW
 The Azure Olympics 2024 Data Engineering Project is an end-to-end data pipeline built on Azure and Databricks using the Olympics 2024 dataset. The project was managed with Azure DevOps, where I implemented CI/CD pipelines for automated deployments and reproducibility. Data ingestion was handled through Azure Data Factory (ADF), with raw data stored in the Bronze container of Azure Data Lake following the Medallion Architecture. To ensure governance and security, I utilised Unity Catalog for access control and lineage. From there, I performed data cleaning and transformation in Databricks, refining the data into Silver and Gold layers. For the Gold layer, I implemented Delta Live Tables (DLT) as an automated ETL framework, and integrated the Change Data Capture (CDC) API to manage Slowly Changing Dimensions (SCD Type 1) for the athletes table. Finally, I delivered curated streaming pipeline datasets for analysis by loading into both Databricks SQL Warehouse and Azure Synapse Analytics, enabling flexible BI and reporting. This project highlights my skills in cloud data engineering, data governance, CI/CD, and modern ETL design with Delta Lake.
 
+Overall Project Impact
+
+End-to-End Automation: Bronze → Silver → Gold with CDC + SCD Type 1 handling
+
+Governance: Unity Catalog ensures secure, auditable, and governed data assets
+
+Incremental Loading: Automatic detection and ingestion of new data → reduces processing costs and runtime
+
+Business Value: Analysts and data scientists can now access clean, curated, and ready-to-use datasets for reporting and advanced analytics
+
+Portfolio Highlight: Showcases cloud data engineering skills, CI/CD, and modern ETL design with Delta Lake
+
 <img width="1444" height="902" alt="Olympics2024data" src="https://github.com/user-attachments/assets/ad31a3b9-32cf-412b-9f5b-261910c41345" />
 
 
@@ -59,6 +71,21 @@ My pipeline ingested the source data successfully using the ForEach activity, af
 
 <img width="1434" height="764" alt="Screenshot 2025-09-25 at 04 08 39" src="https://github.com/user-attachments/assets/0d79c303-ed47-48a2-8588-0ef9e05bb50c" />
 
+Goal: Efficiently ingest Olympics 2024 datasets into the Bronze (raw) layer of Azure Data Lake following Medallion Architecture.
+
+KPIs & Metrics:
+
+Data Volume Ingested: Multiple tables ingested successfully, including Athletes, Events, and Medals
+
+Incremental Loading: Spark Structured Streaming + checkpointing → new data automatically processed without reprocessing existing rows
+
+Automation: ForEach activity with parameterized notebooks → ingestion of multiple datasets in a single run
+
+Data Quality: Initial raw ingestion validated; no missing or corrupted files
+
+Result Statement:
+
+Implemented a robust and automated incremental ingestion pipeline, ensuring raw datasets are efficiently loaded into the Bronze layer while maintaining data fidelity.
 ## Phase 2 Transformations
 
 For the next stage of data transformation, since Unity Catalog was already enabled across my Databricks workspace, minimal configuration was required. I created a catalog and defined external locations for the raw data stored in my Bronze containers to organize and manage access effectively.
@@ -70,6 +97,32 @@ For the next stage of data transformation, since Unity Catalog was already enabl
 With the external locations in place, I began reading and transforming the Olympics data to prepare it for the Silver and Gold layers of the pipeline.
 
 <img width="1434" height="764" alt="Screenshot 2025-09-27 at 00 20 04" src="https://github.com/user-attachments/assets/847ec31d-9215-427f-812a-e7ebb6675b47" />
+
+Goal: Clean, enrich, and prepare datasets for curated analysis.
+
+KPIs & Metrics:
+
+
+
+
+
+Unity Catalog Governance: Access control and lineage enabled for all Bronze/Silver/Gold datasets
+
+
+
+Silver Layer Preparation: Cleaned and enriched datasets using PySpark transformations
+
+
+
+CDC for SCD Type 1: Delta Live Tables applied apply_changes() for the Athletes table
+
+
+
+Data Quality Checks: Null values and schema inconsistencies identified and corrected
+
+Result Statement:
+
+Processed and enriched Silver-layer datasets while automating SCD Type 1 handling, ensuring high-quality, analyst-ready data.
 
 ## SERVING- GOLD LAYER(DLT & CDC CAPTURE)
 After transforming the data, reading and writing it to our Data Lake, and saving the cleaned datasets as tables in Databricks, the next step was to serve the final curated datasets. For this, I utilized Delta Live Tables (DLT), a declarative ETL framework, along with CDC apply_changes to automate Slowly Changing Dimensions for our master table, the athletes table also setting expectations for some of my other tables as I was wary of Null Values present.
@@ -92,6 +145,32 @@ Since our data passed all Data Quality Checks, it is now verified and ready to b
 <img width="1434" height="764" alt="Screenshot 2025-09-27 at 06 03 10" src="https://github.com/user-attachments/assets/22c64557-fd31-428b-9289-f6eb05209031" />
 <img width="1434" height="764" alt="Screenshot 2025-09-27 at 06 02 45" src="https://github.com/user-attachments/assets/e0ee12dc-b419-408a-81a3-0b58bf212df0" />
 <img width="1434" height="726" alt="Screenshot 2025-09-27 at 18 02 23" src="https://github.com/user-attachments/assets/c35dfe7c-2d87-4d57-ab3e-7094e275c1c5" />
+
+Goal: Deliver Gold layer datasets ready for analytics, with historical data tracked efficiently.
+
+KPIs & Metrics:
+
+
+
+
+
+Delta Live Tables (DLT): Automated ETL pipelines for Gold layer
+
+
+
+SCD Type 1: CDC applied to master tables → UPSERT logic maintained historical changes
+
+
+
+Data Quality Checks:  All tables passed validation → no dropped or duplicate records
+
+
+
+Tables Served: Gold-layer tables ready for analytics in Databricks SQL Warehouse and Synapse Analytics
+
+Result Statement:
+
+Delivered fully curated, quality-assured Gold-layer datasets using automated ETL and CDC for SCD Type 1, providing a reliable foundation for reporting and analytics.
 
 ## Databricks Warehousing
 For reporting, I tested the curated datasets using the Serverless SQL Warehouse in Databricks to ensure they were ready for analysis and visualization.
@@ -117,3 +196,21 @@ To provide additional flexibility, I loaded the curated data into Synapse Analyt
 <img width="1434" height="764" alt="Screenshot 2025-09-27 at 16 50 54" src="https://github.com/user-attachments/assets/f3828516-840f-48f1-8dcc-9bb141bc09f7" />
 
 In my project, I chose to use views instead of tables in Synapse for the presentation layer because they provide abstraction and simplicity, hiding the complexity of the underlying raw and transformed data while making it easier for analysts to query. Views are lightweight and flexible, allowing quick updates to schema or business logic without the need to reload or duplicate data. This aligns with best practices in modern data architectures, where tables handle persistence at the raw and curated layers, while views expose clean, business-friendly models to end users. By doing this, I was able to balance performance with usability, showcasing how Synapse can still leverage optimized underlying storage while offering analyst-ready models. For my GitHub portfolio, using views also better communicates design thinking, highlighting my ability to present data in a way that aligns with real-world reporting and analytics needs rather than just displaying raw storage as soon after completion of project resource group will be deleted, although in production and future portfolio project this would be a different case as there are major instance in data loading in Synapse Workspace, in which I will demonstrate my skills in creating and presenting external tables.
+
+Data Delivery & BI Integration
+
+Goal: Make curated datasets accessible for business intelligence and reporting.
+
+KPIs & Metrics:
+
+Databricks SQL Warehouse:  Curated datasets tested via SQL queries and dashboards
+
+Synapse Analytics: External tables and views created using OPENROWSET → optimized for analyst consumption
+
+Views vs Tables: Lightweight views abstract raw complexity → analysts can query business-ready data directly
+
+BI Partner Connect: Power BI connector enabled → Analysts accessed and visualized data without relying on SQL Warehouse
+
+Result Statement:
+
+Delivered curated datasets to Databricks SQL Warehouse and Azure Synapse Analytics with analyst-ready views, enabling flexible and efficient BI reporting.
